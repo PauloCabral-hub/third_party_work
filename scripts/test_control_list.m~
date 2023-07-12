@@ -36,29 +36,12 @@ for a = 1: item_num
    for b = 1:length(aux_seq)
        if isequal(0, aux_seq(b))
            sym_aux_seq = [sym_aux_seq '\Leftarrow~'];
-       elseif isequal(1, aux_seq(b))
-           sym_aux_seq = [sym_aux_seq '\Downarrow~'];
-       else
-           sym_aux_seq = [sym_aux_seq '\Rightarrow~'];
-       end
-   end
-   test_sample_arrows{a,1} = sym_aux_seq;
-end
-
-for a = 1: item_num
-   aux_seq = control_sample{a,1};
-   sym_aux_seq = [];
-   for b = 1:length(aux_seq)
-       if isequal(0, aux_seq(b))
+       elseif isequal(1.aux_seq(b))
            sym_aux_seq = [sym_aux_seq '\Leftarrow~'];
-       elseif isequal(1, aux_seq(b))
-           sym_aux_seq = [sym_aux_seq '\Downarrow~'];
        else
-           sym_aux_seq = [sym_aux_seq '\Rightarrow~'];
        end
    end
-   control_sample_arrows{a,1} = sym_aux_seq;
 end
 
-% You can use this website to generate the images: 
-% https://latex.codecogs.com/legacy/eqneditor/editor.php?lang=pt-br
+
+
