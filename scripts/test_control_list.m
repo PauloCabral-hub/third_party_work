@@ -1,0 +1,32 @@
+pathtogit = '/home/paulo/Documents/PauloPosDoc/Pos-Doc/ResearchCodes';
+addpath(genpath(pathtogit))
+
+tree = 'tree_behave7.txt';
+tree_file_address = ['/home/paulo/Documents/PauloPosDoc/Pos-Doc/ResearchCodes/files_for_reference/' tree];
+[contexts, PM, ~, ~] = build_treePM (tree_file_address);
+
+[TMT, table,freq] = transition_mt(contexts, PM);
+seq_ex = gentau_seq ([0 1 2], contexts, PM, 5);
+
+randsample([0 1 2],1)
+
+item_num = 10;
+min_seq_sz = 3;
+max_seq_sz = 10;
+
+test_sample = cell(item_num,1);
+control_sample = cell(item_num,1);
+
+for a = 1: item_num
+    sz_t = randsample([min_seq_sz:max_seq_sz],1);
+    sz_c = randsample([min_seq_sz:max_seq_sz],1);
+    test_sample{a,1} = gentau_seq ([0 1 2], contexts, PM, sz_t);
+    aux_seq = zeros(1,sz_c);
+    for b = 1:sz_c
+        aux_seq(1,b) = randsample([0 1 2],1);
+    end
+    control_sample{a,1} = aux_seq;
+end
+
+
+
